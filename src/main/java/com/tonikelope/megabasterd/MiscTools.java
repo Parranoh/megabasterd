@@ -701,7 +701,7 @@ public class MiscTools {
 
     public static String truncateText(String text, int max_length) {
 
-        String separator = " ... ";
+        String separator = "..";
 
         max_length -= separator.length();
 
@@ -711,6 +711,24 @@ public class MiscTools {
         }
 
         return (text.length() > max_length) ? text.replaceAll("^(.{1," + (max_length / 2) + "}).*?(.{1," + (max_length / 2) + "})$", "$1" + separator + "$2") : text;
+    }
+
+    public static String truncateFilename(String text, int max_length) {
+        String sep = "..";
+        if (text.length() <= max_length)
+            return text;
+
+        text = text.replaceAll("([^/]{5})[^/]+/", "$1" + sep + "/");
+        if (text.length() <= max_length)
+            return text;
+
+        int dir_length = text.lastIndexOf('/') + 1;
+        if (dir_length == 0 || dir_length >= max_length)
+            return truncateText(text, max_length);
+
+        int file_length = text.length() - dir_length;
+        text = text.substring(0, dir_length) + truncateText(text.substring(dir_length), max_length - dir_length);
+        return text;
     }
 
     public static String cleanFilename(String filename) {

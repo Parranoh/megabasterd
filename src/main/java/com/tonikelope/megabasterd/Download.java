@@ -1076,7 +1076,7 @@ public class Download implements Transference, Runnable, SecureSingleThreadNotif
                 MiscTools.GUIRun(() -> {
                     getView().getFile_name_label().setVisible(true);
 
-                    getView().getFile_name_label().setText(truncateText(_download_path + "/" + _file_name, 100));
+                    getView().getFile_name_label().setText(truncateFilename(_download_path + "/" + _file_name, 100));
 
                     getView().getFile_name_label().setToolTipText(_download_path + "/" + _file_name);
 
@@ -1103,7 +1103,7 @@ public class Download implements Transference, Runnable, SecureSingleThreadNotif
             MiscTools.GUIRun(() -> {
                 getView().getFile_name_label().setVisible(true);
 
-                getView().getFile_name_label().setText(truncateText(_download_path + "/" + _file_name, 100));
+                getView().getFile_name_label().setText(truncateFilename(_download_path + "/" + _file_name, 100));
 
                 getView().getFile_name_label().setToolTipText(_download_path + "/" + _file_name);
 

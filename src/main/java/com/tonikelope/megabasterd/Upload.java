@@ -431,7 +431,7 @@ public class Upload implements Transference, Runnable, SecureSingleThreadNotifia
 
                     getView().getFile_name_label().setText(_file_name);
 
-                    getView().getFile_name_label().setText(truncateText(_file_name, 100));
+                    getView().getFile_name_label().setText(truncateFilename(_file_name, 100));
 
                     getView().getFile_name_label().setToolTipText(_file_name);
 
@@ -458,7 +458,7 @@ public class Upload implements Transference, Runnable, SecureSingleThreadNotifia
 
                 getView().getFile_name_label().setText(_file_name);
 
-                getView().getFile_name_label().setText(truncateText(_file_name, 100));
+                getView().getFile_name_label().setText(truncateFilename(_file_name, 100));
 
                 getView().getFile_name_label().setToolTipText(_file_name);
 

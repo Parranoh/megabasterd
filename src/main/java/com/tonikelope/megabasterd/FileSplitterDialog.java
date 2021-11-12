@@ -20,6 +20,7 @@ import static com.tonikelope.megabasterd.MainPanel.GUI_FONT;
 import static com.tonikelope.megabasterd.MainPanel.THREAD_POOL;
 import static com.tonikelope.megabasterd.MiscTools.translateLabels;
 import static com.tonikelope.megabasterd.MiscTools.truncateText;
+import static com.tonikelope.megabasterd.MiscTools.truncateFilename;
 import static com.tonikelope.megabasterd.MiscTools.updateFonts;
 import java.awt.Desktop;
 import java.awt.Dialog;
@@ -276,10 +277,10 @@ public class FileSplitterDialog extends javax.swing.JDialog {
         if (filechooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION && filechooser.getSelectedFile().canRead()) {
 
             this._file = filechooser.getSelectedFile();
-            this.file_name_label.setText(truncateText(this._file.getAbsolutePath(), 100));
+            this.file_name_label.setText(truncateFilename(this._file.getAbsolutePath(), 100));
             this.file_name_label.setToolTipText(this._file.getAbsolutePath());
             this.file_size_label.setText(MiscTools.formatBytes(this._file.length()));
-            this.output_folder_label.setText(truncateText(this._file.getParentFile().getAbsolutePath(), 100));
+            this.output_folder_label.setText(truncateFilename(this._file.getParentFile().getAbsolutePath(), 100));
             this.output_folder_label.setToolTipText(this._file.getParentFile().getAbsolutePath());
             this._output_dir = new File(this._file.getParentFile().getAbsolutePath());
             this.jProgressBar2.setMinimum(0);
@@ -327,7 +328,7 @@ public class FileSplitterDialog extends javax.swing.JDialog {
 
             this._output_dir = filechooser.getSelectedFile();
 
-            this.output_folder_label.setText(truncateText(this._output_dir.getAbsolutePath(), 100));
+            this.output_folder_label.setText(truncateFilename(this._output_dir.getAbsolutePath(), 100));
 
             this.output_folder_label.setToolTipText(this._output_dir.getAbsolutePath());
         }

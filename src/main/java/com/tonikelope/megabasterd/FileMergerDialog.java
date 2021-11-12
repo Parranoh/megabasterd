@@ -20,6 +20,7 @@ import static com.tonikelope.megabasterd.MainPanel.GUI_FONT;
 import static com.tonikelope.megabasterd.MainPanel.THREAD_POOL;
 import static com.tonikelope.megabasterd.MiscTools.translateLabels;
 import static com.tonikelope.megabasterd.MiscTools.truncateText;
+import static com.tonikelope.megabasterd.MiscTools.truncateFilename;
 import static com.tonikelope.megabasterd.MiscTools.updateFonts;
 import java.awt.Desktop;
 import java.awt.Dialog;
@@ -239,11 +240,11 @@ public class FileMergerDialog extends javax.swing.JDialog {
 
             if (this._file_name != null) {
 
-                this.file_name_label.setText(truncateText(filechooser.getSelectedFile().getParentFile().getAbsolutePath() + "/" + this._file_name, 100));
+                this.file_name_label.setText(truncateFilename(filechooser.getSelectedFile().getParentFile().getAbsolutePath() + "/" + this._file_name, 100));
 
                 this.file_name_label.setToolTipText(filechooser.getSelectedFile().getParentFile().getAbsolutePath() + "/" + this._file_name);
 
-                this.output_folder_label.setText(truncateText(filechooser.getSelectedFile().getParentFile().getAbsolutePath(), 100));
+                this.output_folder_label.setText(truncateFilename(filechooser.getSelectedFile().getParentFile().getAbsolutePath(), 100));
 
                 this.output_folder_label.setToolTipText(filechooser.getSelectedFile().getParentFile().getAbsolutePath());
 
@@ -314,7 +315,7 @@ public class FileMergerDialog extends javax.swing.JDialog {
 
             this._output_dir = filechooser.getSelectedFile();
 
-            this.output_folder_label.setText(truncateText(this._output_dir.getAbsolutePath(), 100));
+            this.output_folder_label.setText(truncateFilename(this._output_dir.getAbsolutePath(), 100));
 
             this.output_folder_label.setToolTipText(this._output_dir.getAbsolutePath());
         }
